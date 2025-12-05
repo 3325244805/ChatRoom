@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.chatsys.mapper.ContactMapper">
+
+    <insert id="insert" parameterType="com.example.chatsys.entity.Contact">
+        INSERT INTO contacts(user_id, contact_id, contact_type, status)
+        VALUES(#{userId}, #{contactId}, #{contactType}, 1)
+    </insert>
+
+    <select id="checkExists" parameterType="com.example.chatsys.entity.Contact" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM contacts
+        WHERE user_id = #{userId}
+          AND contact_id = #{contactId}
+          AND contact_type = #{contactType}
+          AND status = 1
+    </select>
+</mapper>
