@@ -22,7 +22,7 @@ import jakarta.servlet.http.HttpSessionListener;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private final ObjectProvider<UserService> userServiceProvider;//shielei
+    private final ObjectProvider<UserService> userServiceProvider;
 
     public SecurityConfig(ObjectProvider<UserService> userServiceProvider) {
         this.userServiceProvider = userServiceProvider;
